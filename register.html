@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Inicial - UserPluss</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Registro do Primeiro Administrador</h1>
+        <p class="text-center">Crie o primeiro administrador do sistema em poucos passos.</p>
+
+        <!-- Navegação por abas -->
+        <ul class="nav nav-tabs" id="registerTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="welcome-tab" data-bs-toggle="tab" data-bs-target="#welcome" type="button" role="tab">Boas-vindas</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="personal-tab" data-bs-toggle="tab" data-bs-target="#personal" type="button" role="tab">Dados Pessoais</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="company-tab" data-bs-toggle="tab" data-bs-target="#company" type="button" role="tab">Dados da Empresa</button>
+            </li>
+        </ul>
+
+        <!-- Conteúdo das abas -->
+        <div class="tab-content mt-3" id="registerTabContent">
+            <!-- Aba de Boas-vindas -->
+            <div class="tab-pane fade show active" id="welcome" role="tabpanel">
+                <div class="card p-3">
+                    <h3>Bem-vindo ao UserPluss!</h3>
+                    <p>Obrigado por escolher nossa plataforma como parceira para gerenciar seu negócio. Você está prestes a criar o primeiro administrador do sistema, que terá acesso completo para configurar serviços, profissionais e muito mais. Vamos começar!</p>
+                    <button class="btn btn-primary" onclick="showTab('personal-tab')">Próximo</button>
+                </div>
+            </div>
+
+            <!-- Aba de Dados Pessoais -->
+            <div class="tab-pane fade" id="personal" role="tabpanel">
+                <div class="card p-3">
+                    <h3>Dados Pessoais</h3>
+                    <form id="personalForm">
+                        <input type="text" id="registerNome" class="form-control mb-3" placeholder="Nome Completo" required>
+                        <input type="email" id="registerEmail" class="form-control mb-3" placeholder="Email" required>
+                        <input type="password" id="registerPassword" class="form-control mb-3" placeholder="Senha" required>
+                        <div class="d-flex justify-content-between">
+                            <button type="button" class="btn btn-secondary" onclick="showTab('welcome-tab')">Voltar</button>
+                            <button type="button" class="btn btn-primary" onclick="showTab('company-tab')">Próximo</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Aba de Dados da Empresa -->
+            <div class="tab-pane fade" id="company" role="tabpanel">
+                <div class="card p-3">
+                    <h3>Dados da Empresa</h3>
+                    <form id="registerForm">
+                        <input type="text" id="companyNome" class="form-control mb-3" placeholder="Nome da Empresa" required>
+                        <input type="text" id="companyCNPJ" class="form-control mb-3" placeholder="CNPJ" required>
+                        <input type="text" id="companyTelefone" class="form-control mb-3" placeholder="Telefone" required>
+                        <div class="d-flex justify-content-between">
+                            <button type="button" class="btn btn-secondary" onclick="showTab('personal-tab')">Voltar</button>
+                            <button type="submit" class="btn btn-primary">Registrar Admin</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="./firebase.js"></script>
+    <script type="module" src="./auth.js"></script>
+    <script type="module" src="./main.js"></script>
+    <script>
+        function showTab(tabId) {
+            const tabElement = document.getElementById(tabId);
+            const tab = new bootstrap.Tab(tabElement);
+            tab.show();
+        }
+    </script>
+</body>
+</html>

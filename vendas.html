@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comandas - UserPluss</title>
+    <title>Vendas - UserPluss</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -29,19 +29,15 @@
         </div>
     </nav>
     <div class="container mt-5">
-        <h1>Comandas</h1>
-        <form id="comandaForm" class="card p-3 mb-3">
-            <input type="text" id="comandaCliente" class="form-control mb-2" placeholder="Cliente" required>
-            <input type="date" id="comandaData" class="form-control mb-2" required>
-            <select id="comandaServico" class="form-control mb-2" required></select>
-            <select id="comandaProfissional" class="form-control mb-2" required></select>
-            <button type="submit" class="btn btn-primary">Registrar</button>
+        <h1>Registrar Venda</h1>
+        <form id="vendaForm" class="card p-3 mb-3">
+            <select id="vendaProduto" class="form-control mb-2" required></select>
+            <input type="number" id="vendaQtd" class="form-control mb-2" placeholder="Quantidade" required>
+            <button type="submit" class="btn btn-primary">Registrar Venda</button>
         </form>
-        <table class="table">
-            <thead><tr><th>Cliente</th><th>Data</th><th>Total</th><th>Status</th><th>Ações</th></tr></thead>
-            <tbody id="tabelaComandas"></tbody>
-        </table>
+        <ul id="listaVendas" class="list-group"></ul>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script type="module" src="./firebase.js"></script>
     <script type="module" src="./auth.js"></script>
