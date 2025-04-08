@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="./style.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mui/material@5.5.0/dist/css/material-ui.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Carregar o menu -->
+    <div id="menu-container"></div>
+
+    <h1>Bem-vindo ao Dashboard</h1>
+
+    <script>
+        // Função para carregar o conteúdo do menu.html
+        fetch('./menu.html')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro ao carregar menu.html');
+                }
+                return response.text();
+            })
+            .then(data => {
+                // Inserir o conteúdo do menu.html no div com id 'menu-container'
+                document.getElementById('menu-container').innerHTML = data;
+            })
+            .catch(error => {
+                // Exibe uma mensagem de erro caso algo aconteça
+                console.error('Erro ao carregar o menu:', error);
+                document.getElementById('menu-container').innerHTML = '<p>Erro ao carregar o menu. Tente novamente mais tarde.</p>';
+            });
+    </script>
+
+</body>
+</html>
